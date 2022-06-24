@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+{% block title %}
+	{{ parent() }}
+	Formulaire
+{% endblock %}
+{% block content %}
+	{% if path("app_ajout") %}
+		<h1>Ajout d'un article</h1>
+	{% elseif path("app-update") %}
+		<h1>Modifier l'article</h1>
+	{% endif %}
+	{{ form(formArticle) }}{% endblock %}

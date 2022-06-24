@@ -7,4 +7,10 @@
 /public/bundles/
 /var/
 /vendor/
+/templates/panier
+/templates/test.html.twig
+/src/DataFixtures
+/src/Controller/PanierController.php
+/src/Controller/TestController.php
+
 ###< symfony/framework-bundle ###

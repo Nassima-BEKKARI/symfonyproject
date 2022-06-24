@@ -1,3 +1,59 @@
 controllers:
-    resource: ../src/Controller/
-    type: attribute
+  resource: ../src/Controller/
+  type: attribute
+
+app_home:
+  path: /
+  controller: App\Controller\HomeController::home
+
+app_articles:
+  path: /articles
+  controller: App\Controller\ArticleController::allArticles
+
+app_ajout:
+  path: /ajout-article
+  controller: App\Controller\ArticleController::ajout
+
+app_update:
+  path: /update-article/{id}
+  controller: App\Controller\ArticleController::update
+  requirements:
+    id: '\d+'
+
+app_delete:
+  path: /delete_article_{id}
+  controller: App\Controller\ArticleController::delete
+  requirements:
+    id: '\d+'
+
+app_select:
+  path: /article_{id}
+  controller: App\Controller\ArticleController::select
+  requirements:
+    id: '\d+'
+
+app_add:
+  path: /ajout-auteur
+  controller: App\Controller\AuteurController::add
+
+app_auteurs:
+  path: /auteurs
+  controller: App\Controller\AuteurController::allAuteurs
+
+app_show:
+  path: /auteur_{id}
+  controller: App\Controller\AuteurController::select
+  requirements:
+    id: '\d+'
+
+app_update_auteur:
+  path: /update-auteur/{id}
+  controller: App\Controller\AuteurController::update
+  requirements:
+    id: '\d+'
+
+app_delete_auteur:
+  path: delete_auteur_{id}
+  controller: App\Controller\AuteurController::delete
+  requirements:
+    id: '\d+'

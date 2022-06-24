@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+{% block title %}
+	{{ parent() }}
+	Auteur
+{% endblock %}
+{% block content %}
+	<div>
+		<h6>Nom de l'auteur:
+			{{auteur.nom ~ " " ~ auteur.prenom}}</h6>
+		<h6>Né(e) le :
+			{{ auteur.dateDeNaissance | date("d/m/y")}}</h6>
+		<h6>Biographie de l'auteur:</h6>
+		<p>{{auteur.biographie}}</p>
+	</div>
+{% endblock %}

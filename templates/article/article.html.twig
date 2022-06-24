@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+{% block title %}
+	{{ parent() }}
+	Article
+{% endblock %}
+{% block content %}
+	<div>
+		<h3>Titre de l'article:
+			{{article.titre}}</h3>
+		<h6>Date de publication de l'article :
+			{{ article.dateDeCreation | date("d/m/y à H\hi")}}</h6>
+		<h6>
+			{% if article.dateDeModification is not null %}
+				Modifié le :
+				{{ article.dateDeModification | date("d/m/y à H\hi") }}</h6>
+		{% endif %}
+		<h6>Auteur de l'article</h6>
+		<p>Contenu de l'article:
+			{{article.contenu}}...</p>
+
+	</div>
+{% endblock %}
