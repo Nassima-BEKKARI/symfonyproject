@@ -6,34 +6,42 @@
 {% endblock %}
 
 {% block content %}
-	<div class="container">
-		<h3>Les auteurs</h3>
-		<table class="table">
-			<thead>
+<div class="container">
+	<h3>Les auteurs</h3>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Prénom</th>
+				<th>Date de naissance</th>
+				<th>Biographie</th>
+				<th>Action</th>
+
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for auteur in auteurs %}
 				<tr>
-					<th>Nom</th>
-					<th>Prénom</th>
-					<th>Date de naissance</th>
-					<th>Biographie</th>
-					<th>Action</th>
-
-
+					<td>{{auteur.nom}}</td>
+					<td>{{auteur.prenom}}</td>
+					<td>{{auteur.dateDeNaissance| date("d/m/y")}}</td>
+					<td>{{auteur.biographie|slice(0,50)}}
+						...
+					</td>
+					<td>
+						<a href="{{path("app_show", {id: auteur.id})}}">
+							<i class="fas fa-eye mx-1"></i>
+						</a>
+						<a href="{{path("app_update_auteur", {id: auteur.id})}}">
+							<i class="fas fa-edit mx-1 text-success"></i>
+						</a>
+						<a href="{{path("app_delete_auteur",{id:auteur.id})}}">
+							<i class="fas fa-trash mx-1 text-danger" onclick="return confirm('êtes vous sûr de vouloir supprimer l\'auteur')"></i>
+						</a>
+					</td>
 				</tr>
-			</thead>
-			<tbody>
-				{% for auteur in auteurs %}
-					<tr>
-						<td>{{auteur.nom}}</td>
-						<td>{{auteur.prenom}}</td>
-						<td>{{auteur.dateDeNaissance| date("d/m/y")}}</td>
-						<td>{{auteur.biographie|slice(0,50)}}
-							...
-						</td>
-						<td><a href="{{path("app_show", {id: auteur.id})}}"><i class="fas fa-eye mx-1"></a><a href="{{path("app_update_auteur", {id: auteur.id})}}"><i class="fas fa-edit mx-1 text-success"></a><a href="{{path("app_delete_auteur",{id:auteur.id})}}"><i class="fas fa-trash mx-1 text-danger" onclick="return confirm('êtes vous sûr de vouloir supprimer l\'auteur')"></i></a></td>
-					</tr>
-				</td>
-			</tbody>
-		</tr>
-	{% endfor %}
-
-</tbody></table></div>{% endblock %}
+			</td>
+		</tbody>
+	</tr>
+</td></tbody></tr>{% endfor %}</tbody></table></div>{% endblock %}
